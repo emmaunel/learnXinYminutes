@@ -22,11 +22,18 @@ array=(one two three four five six)
 echo ${array}
 echo ${array[@]}
 
-# TODO ---- Append to list???
 # ------------Loops---------------------
 for i in "${array[@]}"; do
     echo "$i"
 done
+
+# ---------Append to list-----------
+newArray=()
+for i in {1..10}; do
+    newArray+=($i)
+done
+
+echo "New Array: ${newArray[@]}"
 
 # ---------Generate arbitrary strings
 echo {1..10}
