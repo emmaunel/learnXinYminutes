@@ -130,3 +130,62 @@ counter = 1
 while counter <= 5 do
   puts "Iteration #{counter}"
 end
+
+# There are a bunch of other helpful looping functions in Ruby.
+# Map, for instance, takes the array it's looping over, does something
+# to it as defined in your block, and returns an entirely new Array
+array = [1,2,3,4,5]
+doubled = array.map { |element|
+  element * 2}
+
+# switch cases
+grade = 'B'
+case grade
+when 'A'
+  puts 'Way to go'
+else
+  puts 'Faild'
+end
+
+# Exception handling
+begin
+  # Code here that might raise an Exception
+  raise NoMemoryError, 'You ran out of memory'
+rescue NoMemoryError
+  puts 'Memory Error Riased'
+rescue RuntimeError
+  puts "Runtime raise"
+else
+  puts 'This runs if no exception were thrown at all'
+ensure
+  puts 'This code always runs no matter what'
+end
+
+# method
+def double(x)
+  x * 2
+end
+
+double(2) # 4
+double 3 # 6
+double double 3 # 12
+
+def sum(x, y)
+  x + y
+end
+
+sum 3, 4 # 7
+
+# yield
+# All methods have an implicit, optional block parameter.
+#It can be called with the yield keyword
+def surround
+  puts '{'
+  yield
+  puts '}'
+end
+
+surround { puts 'hello world' }
+# {
+# hello world
+# }
